@@ -1,0 +1,12 @@
+FROM node:lts-alpine3.16
+
+WORKDIR /app
+
+COPY ./todo-backend/package*.json ./
+RUN npm install
+
+COPY ./todo-backend .
+
+ENV BE_PORT=3010
+
+CMD ["npm", "run", "dev"]
